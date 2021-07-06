@@ -1,12 +1,13 @@
-import contacts from './contacts.js';
-import { Command } from 'commander';
+const { Command } = require('commander');
+
+const contacts = require('./contacts.js');
 
 const program = new Command();
 
 program
-  .option('-a, --actionS <type>', 'choose action')
+  .option('-a, --action <type>', 'choose action')
   .option('-i, --id <type>', 'user id')
-  .option('-n, --nameS <type>', 'user name')
+  .option('-n, --name <type>', 'user name')
   .option('-e, --email <type>', 'user email')
   .option('-p, --phone <type>', 'user phone');
 
@@ -14,22 +15,22 @@ program.parse(process.argv);
 
 const argv = program.opts();
 
-async function invokeAction({ actionS, id, nameS, email, phone }) {
-  switch (actionS) {
+async function invokeAction({ action, id, name, email, phone }) {
+  switch (action) {
     case 'list':
-      console.log(await contacts.listContacts());
+      await contacts.listContacts();
       break;
 
     case 'get':
-      console.log(await contacts.getContactById(id));
+      await contacts.getContactById(id);
       break;
 
     case 'add':
-      console.log(await contacts.addContact(nameS, email, phone));
+      await contacts.addContact(name, email, phone);
       break;
 
     case 'remove':
-      console.log(await contacts.removeContact(id));
+      await contacts.removeContact(id);
       break;
 
     default:

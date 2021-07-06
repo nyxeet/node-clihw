@@ -1,5 +1,9 @@
 # node-clihw
+remove
 https://ibb.co/jkSzTy1
+list
 https://ibb.co/CKzVSVm
+add
 https://ibb.co/bJfYrzV
-https://ibb.co/PTc9jjf
+get
+https://ibb.co/7nhQZqk
